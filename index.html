@@ -1,144 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WebTerminal BETA v0.1</title>
-<style>
-
-    @font-face {
-        font-family: WebTerminalMono;
-        src: url(https://cdn360.pages.dev/products/WebCode/WebTerminalMono.ttf);
-    }
-
-    body {
-        font-family: WebTerminalMono;
-        font-size: 20px;
-        background-color: #0c0c0c;
-        color: #cccccc;
-        margin: 0;
-        padding: 0;
-    }
-
-    .terminal {
-        width: 80%;
-        max-width: 800px;
-        margin: 50px auto;
-        border: 2px solid #13a10e;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .terminal-header {
-        background-color: #0c0c0c;
-        padding: 10px;
-    }
-
-    .terminal-body {
-        padding: 10px;
-        overflow-y: hidden;
-        max-height: 300px;
-    }
-
-    .input-line {
-        display: flex;
-    }
-
-    .prompt {
-        color: #13a10e;
-        padding-left: 10px;
-    }
-
-    .input-field {
-        flex: 1;
-        background-color: transparent;
-        border: none;
-        color: #cccccc;
-        font-family: WebTerminalMono;
-        font-size: 20px;
-        outline: none;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AS-WOS</title>
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/os/images/AS-WOS.png" sizes="30x30">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/os/images/AS-WOS.png" sizes="600x600">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="terminal">
-    <div class="terminal-header">WebTerminal BETA v0.1</div>
-    <div class="terminal-body" id="terminalBody"></div>
-    <div class="input-line">
-        <div class="prompt">$</div>
-        <input type="text" class="input-field" id="userInput" autocomplete="off" autofocus>
+        <div class="terminal-header">
+            <span>Aurorasoft Web Operating System - Version 6.44</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+        <div class="input-line">
+            <span class="user-text"></span>
+            <!--  <span class="normal-text">:</span> -->
+            <span class="folder-text">A:</span>
+            <div class="prompt"></div>
+            <input type="text" class="input-field" id="userInput" autocomplete="off" autofocus spellcheck="false">
+        </div>
     </div>
-    </div>
-
-    <script>
-        const terminalBody = document.getElementById('terminalBody');
-        const userInput = document.getElementById('userInput');
-
-        userInput.addEventListener('keyup', function(event) {
-        if (event.key === 'Enter') {
-            const command = userInput.value.trim();
-            if (command !== '') {
-            executeCommand(command);
-            }
-            userInput.value = '';
-        }
-        });
-
-        function executeCommand(command) {
-        const output = document.createElement('div');
-        output.textContent = '> ' + command;
-        terminalBody.appendChild(output);
-
-        const parts = command.split(' ');
-        const cmd = parts[0];
-
-        switch (cmd) {
-            case 'help':
-            output.textContent = 'Available commands: help, about, contact, goto, search';
-            break;
-
-            case 'about':
-            output.textContent = 'WebTerminal is a useful website that lets you use the web in a terminal.';
-            break;
-
-            case 'contact':
-            output.textContent = 'Contact us at ourjupitergroup@gmail.com';
-            break;
-
-            case 'goto':
-            if (parts.length < 2) {
-                output.textContent = 'Usage: goto <url>';
-            } else {
-                const url = parts[1];
-                window.location.href = url;
-            }
-            break;
-
-            case 'search':
-            if (parts.length < 2) {
-                output.textContent = 'Usage: search <query>';
-            } else {
-                const query = parts.slice(1).join(' ');
-                const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
-                window.location.href = searchUrl;
-            }
-            break;
-
-            case 'llawr':
-            output.textContent = 'LLAWR is our custom cmdlang.';
-            break;
-
-            case 'llawr|source':
-            window.location.href = 'https://github.com/thejupitergroup/WebTerminal';
-            break;
-
-            default:
-            output.textContent = 'Command not found. Type "help" for available commands.';
-        }
-
-        terminalBody.scrollTop = terminalBody.scrollHeight;
-        }
-    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn360.pages.dev/products/OmegaTerminal/files/mathjs/math.js"></script>
+    <script src="https://cdn360.pages.dev/products/OmegaTerminal/files/config.js"></script>
 </body>
 </html>

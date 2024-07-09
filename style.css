@@ -1,0 +1,154 @@
+:root {
+    --system-bkgd: #000000;
+    --system-text: #00aa00;
+    --system-border: #00aa00;
+    --system-scrollbar-track: #000000;
+    --system-scrollbar-thumb-bkg: #00aa00;
+    --system-scrollbar-thumb-border: #000000;
+    --system-scrollbar-thumb-hover: #00aa00;
+    --system-scrollbar-track-active: #00aa00;
+}
+
+html, body {
+    font-family: monospace;
+    font-size: 20px;
+    color: var(--system-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--system-bkgd);
+    overflow: hidden;
+}
+
+.user-text {
+    font-family: monospace;
+    color: var(--system-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 0px;
+}
+
+.folder-text {
+    font-family: monospace;
+    color: var(--system-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 0px;
+    margin-left: 10px;
+}
+
+.normal-text {
+    font-family: monospace;
+    color: var(--system-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 0px;
+}
+
+.input-field {
+    font-family: monospace;
+    font-size: 20px;
+    color: var(--system-text);
+    caret-color: var(--system-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+::selection {
+    background-color: var(--system-text);
+    color: var(--system-bkgd);
+}
+
+::-moz-selection {
+    background-color: var(--system-text);
+    color: var(--system-bkgd);
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.terminal-header {
+    background-color: var(--system-bkgd);
+    padding: 2px;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 2px;
+    overflow-y: auto;
+}
+
+.terminal-body hr {
+    border: 0;
+    border-top: 1px solid var(--system-border);
+    margin: 10px 0;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 12px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: var(--system-scrollbar-track);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background-color: var(--system-scrollbar-thumb-bkg);
+    border: 3px solid var(--system-scrollbar-thumb-border);
+    border-radius: 10px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--system-scrollbar-thumb-hover);
+}
+
+.terminal-body::-webkit-scrollbar-thumb:active {
+    background-color: var(--system-scrollbar-track-active);
+}
+
+.input-line {
+    padding-left: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    background-color: var(--system-bkgd);
+}
+
+.prompt {
+    color: var(--system-text);
+    padding-left: 0px;
+    padding-right: 5px;
+}
+
+@media (max-width: 600px) {
+    html, body {
+        font-size: 20px;
+    }
+
+    .input-line {
+        font-size: 20px;
+        padding-left: 0px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        display: flex;
+        align-items: center;
+        background-color: var(--system-bkgd);
+    }
+
+    .input-field {
+        width: 100%;
+        font-size: 20px;
+        margin-top: 5px;
+    }
+}
